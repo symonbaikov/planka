@@ -167,6 +167,7 @@ export default {
       users: 'Utilisateurs',
       viewer: 'Spectateur',
       writeComment: 'Écrire un commentaire...',
+      taskList_hideChecked: 'Masquer les éléments marqués',
     },
 
     action: {

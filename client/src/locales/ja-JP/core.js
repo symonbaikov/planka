@@ -157,6 +157,7 @@ export default {
       users: 'ユーザー',
       viewer: 'ビューア',
       writeComment: 'コメントを書く…',
+      taskList_hideChecked: '選択した項目を非表示にする',
     },
 
     action: {

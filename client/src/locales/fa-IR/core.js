@@ -164,6 +164,7 @@ export default {
       users: 'کاربران',
       viewer: 'بیننده',
       writeComment: 'نظر بنویسید...',
+      taskList_hideChecked: 'پنهان کردن آیتم‌های انتخاب شده',
     },
 
     action: {

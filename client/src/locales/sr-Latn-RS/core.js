@@ -163,6 +163,7 @@ export default {
       users: 'Korisnici',
       viewer: 'Pregledač',
       writeComment: 'Napiši komentar...',
+      taskList_hideChecked: 'Sakrij označene stavke',
     },
 
     action: {

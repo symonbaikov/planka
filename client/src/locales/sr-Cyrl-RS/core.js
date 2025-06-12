@@ -163,6 +163,7 @@ export default {
       users: 'Корисници',
       viewer: 'Прегледач',
       writeComment: 'Напиши коментар...',
+      taskList_hideChecked: 'Сакриј означене ставке',
     },
 
     action: {

@@ -315,6 +315,7 @@ export default {
       visualTaskManagementWithLists: 'Gestión visual de tareas con listas',
       withoutBaseGroup: 'Sin grupo base',
       writeComment: 'Escribir un comentario...',
+      taskList_hideChecked: 'Ocultar elementos marcados',
     },
 
     action: {

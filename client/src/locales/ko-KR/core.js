@@ -162,6 +162,7 @@ export default {
       users: '사용자들',
       viewer: '뷰어',
       writeComment: '댓글 작성...',
+      taskList_hideChecked: '완료된 항목 숨기기',
     },
 
     action: {

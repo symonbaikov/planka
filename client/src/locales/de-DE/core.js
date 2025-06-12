@@ -310,6 +310,7 @@ export default {
       visualTaskManagementWithLists: 'Visuelle Aufgabenverwaltung mit Listen.',
       withoutBaseGroup: 'Ohne Basisgruppe',
       writeComment: 'Kommentar verfassen...',
+      taskList_hideChecked: 'Ausgecheckte Elemente ausblenden',
     },
 
     action: {

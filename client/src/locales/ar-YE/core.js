@@ -162,6 +162,7 @@ export default {
       users: 'المستخدمين',
       viewer: 'مشاهد',
       writeComment: 'اكتب تعليقاً...',
+      taskList_hideChecked: 'إخفاء العناصر المحددة',
     },
 
     action: {

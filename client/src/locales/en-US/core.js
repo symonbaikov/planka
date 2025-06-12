@@ -313,6 +313,7 @@ export default {
       visualTaskManagementWithLists: 'Visual task management with lists.',
       withoutBaseGroup: 'Without base group',
       writeComment: 'Write a comment...',
+      taskList_hideChecked: 'Hide checked items',
     },
 
     action: {

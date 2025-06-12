@@ -165,6 +165,7 @@ export default {
       users: 'Felhasználók',
       viewer: 'Néző',
       writeComment: 'Írjon egy megjegyzést...',
+      taskList_hideChecked: 'Elrejtett elemek megjelenítése',
     },
 
     action: {

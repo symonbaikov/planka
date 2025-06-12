@@ -153,6 +153,7 @@ export default {
       users: '使用者',
       viewer: '檢視',
       writeComment: '編寫評論...',
+      taskList_hideChecked: '隱藏已完成的任務',
     },
 
     action: {
