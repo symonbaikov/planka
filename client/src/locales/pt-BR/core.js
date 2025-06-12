@@ -158,6 +158,7 @@ export default {
       users: 'Usuários',
       viewer: 'Visualizador',
       writeComment: 'Escreva um comentário...',
+      taskList_hideChecked: 'Ocultar itens marcados',
     },
 
     action: {

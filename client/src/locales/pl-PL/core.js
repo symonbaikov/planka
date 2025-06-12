@@ -293,6 +293,7 @@ export default {
       visualTaskManagementWithLists: 'Wizualne zarządzanie zadaniami z listami.',
       withoutBaseGroup: 'Bez grupy bazowej',
       writeComment: 'Napisz komentarz...',
+      taskList_hideChecked: 'Ukryj zaznaczone elementy',
     },
 
     action: {

@@ -143,6 +143,7 @@ export default {
       username: 'Användarnamn',
       users: 'Användare',
       writeComment: 'Skriv en kommentar...',
+      taskList_hideChecked: 'Dölj markerade objekt',
     },
 
     action: {

@@ -152,6 +152,7 @@ export default {
       users: '用户',
       viewer: '视图',
       writeComment: '编写评论...',
+      taskList_hideChecked: '隐藏已完成的任务',
     },
 
     action: {

@@ -314,6 +314,7 @@ export default {
       visualTaskManagementWithLists: 'Gestione visiva dei task con liste',
       withoutBaseGroup: 'Senza gruppo base',
       writeComment: 'Scrivi un commento...',
+      taskList_hideChecked: 'Nascondi elementi selezionati',
     },
 
     action: {

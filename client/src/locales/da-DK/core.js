@@ -321,6 +321,7 @@ export default {
       visualTaskManagementWithLists: 'Visuel opgavestyring med lister',
       withoutBaseGroup: 'Uden standardgruppe',
       writeComment: 'Skriv en kommentar...',
+      taskList_hideChecked: 'Skjul afkrydsede elementer',
     },
 
     action: {

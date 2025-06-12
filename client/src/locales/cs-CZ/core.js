@@ -293,6 +293,7 @@ export default {
       visualTaskManagementWithLists: 'Vizuální správa úkolů pomocí seznamů.',
       withoutBaseGroup: 'Bez základní skupiny',
       writeComment: 'Napsat komentář...',
+      taskList_hideChecked: 'Skrýt označené položky',
     },
 
     action: {

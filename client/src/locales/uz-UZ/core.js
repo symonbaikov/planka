@@ -140,6 +140,7 @@ export default {
       username: 'Foydalanuvchi nomi',
       users: 'Foydalanuvchilar',
       writeComment: 'Izoh yozish...',
+      taskList_hideChecked: 'Ko chirish',
     },
 
     action: {

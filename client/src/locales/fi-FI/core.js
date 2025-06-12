@@ -319,6 +319,7 @@ export default {
       visualTaskManagementWithLists: 'Visuaalinen tehtävien hallinta listoilla.',
       withoutBaseGroup: 'Ilman perusryhmää',
       writeComment: 'Kirjoita kommentti...',
+      taskList_hideChecked: 'Piilota valitut kohdat',
     },
 
     action: {

@@ -158,6 +158,7 @@ export default {
       users: 'Gebruikers',
       viewer: 'Kijker',
       writeComment: 'Schrijf een opmerking...',
+      taskList_hideChecked: 'Verberg geselecteerde items',
     },
 
     action: {

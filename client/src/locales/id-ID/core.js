@@ -160,6 +160,7 @@ export default {
       users: 'Pengguna',
       viewer: 'Penglihat',
       writeComment: 'Tuliskan komentar...',
+      taskList_hideChecked: 'Sembunyikan item yang terpilih',
     },
 
     action: {

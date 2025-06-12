@@ -142,6 +142,7 @@ export default {
       username: 'Používateľské meno',
       users: 'Používatelia',
       writeComment: 'Napísať komentár...',
+      taskList_hideChecked: 'Skryť označené položky',
     },
 
     action: {
