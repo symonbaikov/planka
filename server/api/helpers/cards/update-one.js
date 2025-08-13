@@ -31,6 +31,9 @@ module.exports = {
       type: 'ref',
       required: true,
     },
+    webhooks: {
+      type: 'ref',
+    },
     request: {
       type: 'ref',
     },
@@ -104,6 +107,8 @@ module.exports = {
     if (_.isEmpty(values)) {
       card = inputs.record;
     } else {
+      const { webhooks = await Webhook.qm.getAll() } = inputs;
+
       if (!_.isNil(values.position)) {
         const cards = await Card.qm.getByListId(list.id, {
           exceptIdOrIds: inputs.record.id,
@@ -373,8 +378,6 @@ module.exports = {
       }
 
       if (values.list) {
-        values.listChangedAt = new Date().toISOString();
-
         if (values.board || inputs.list.type === List.Types.TRASH) {
           values.prevListId = null;
         } else if (sails.helpers.lists.isArchiveOrTrash(values.list)) {
@@ -382,9 +385,24 @@ module.exports = {
         } else if (inputs.list.type === List.Types.ARCHIVE) {
           values.prevListId = null;
         }
+
+        const typeState = List.TYPE_STATE_BY_TYPE[values.list.type];
+
+        if (inputs.record.isClosed) {
+          if (typeState === List.TypeStates.OPENED) {
+            values.isClosed = false;
+          }
+        } else if (typeState === List.TypeStates.CLOSED) {
+          values.isClosed = true;
+        }
+
+        values.listChangedAt = new Date().toISOString();
       }
 
-      card = await Card.qm.updateOne(inputs.record.id, values);
+      const updateResult = await Card.qm.updateOne(inputs.record.id, values);
+
+      ({ card } = updateResult);
+      const { tasks } = updateResult;
 
       if (!card) {
         return card;
@@ -402,6 +420,7 @@ module.exports = {
 
             const { id } = await sails.helpers.labels.createOne.with({
               project,
+              webhooks,
               values: {
                 ..._.omit(label, ['id', 'boardId', 'createdAt', 'updatedAt']),
                 board,
@@ -459,6 +478,7 @@ module.exports = {
 
         if (values.list) {
           await sails.helpers.actions.createOne.with({
+            webhooks,
             values: {
               card,
               type: Action.Types.MOVE_CARD,
@@ -476,8 +496,35 @@ module.exports = {
         }
       }
 
+      if (tasks) {
+        const taskListIds = sails.helpers.utils.mapRecords(tasks, 'taskListId', true);
+        const taskLists = await TaskList.qm.getByIds(taskListIds);
+        const taskListById = _.keyBy(taskLists, 'id');
+
+        const cardIds = sails.helpers.utils.mapRecords(taskLists, 'cardId', true);
+        const cards = await Card.qm.getByIds(cardIds);
+        const cardById = _.keyBy(cards, 'id');
+
+        const boardIdByTaskId = tasks.reduce(
+          (result, task) => ({
+            ...result,
+            [task.id]: cardById[taskListById[task.taskListId].cardId].boardId,
+          }),
+          {},
+        );
+
+        tasks.forEach((task) => {
+          sails.sockets.broadcast(`board:${boardIdByTaskId[task.id]}`, 'taskUpdate', {
+            item: task,
+          });
+        });
+
+        // TODO: send webhooks
+      }
+
       sails.helpers.utils.sendWebhooks.with({
-        event: 'cardUpdate',
+        webhooks,
+        event: Webhook.Events.CARD_UPDATE,
         buildData: () => ({
           item: card,
           included: {

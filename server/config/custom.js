@@ -50,6 +50,7 @@ module.exports.custom = {
   defaultAdminEmail:
     process.env.DEFAULT_ADMIN_EMAIL && process.env.DEFAULT_ADMIN_EMAIL.toLowerCase(),
 
+  internalAccessToken: process.env.INTERNAL_ACCESS_TOKEN,
   activeUsersLimit: envToNumber(process.env.ACTIVE_USERS_LIMIT),
   showDetailedAuthErrors: process.env.SHOW_DETAILED_AUTH_ERRORS === 'true',
 
@@ -63,6 +64,7 @@ module.exports.custom = {
   oidcIssuer: process.env.OIDC_ISSUER,
   oidcClientId: process.env.OIDC_CLIENT_ID,
   oidcClientSecret: process.env.OIDC_CLIENT_SECRET,
+  oidcUseOauthCallback: process.env.OIDC_USE_OAUTH_CALLBACK === 'true',
   oidcIdTokenSignedResponseAlg: process.env.OIDC_ID_TOKEN_SIGNED_RESPONSE_ALG,
   oidcUserinfoSignedResponseAlg: process.env.OIDC_USERINFO_SIGNED_RESPONSE_ALG,
   oidcScopes: process.env.OIDC_SCOPES || 'openid email profile',
@@ -93,6 +95,4 @@ module.exports.custom = {
   smtpPassword: process.env.SMTP_PASSWORD,
   smtpFrom: process.env.SMTP_FROM,
   smtpTlsRejectUnauthorized: process.env.SMTP_TLS_REJECT_UNAUTHORIZED !== 'false',
-
-  webhooks: JSON.parse(process.env.WEBHOOKS || '[]'), // TODO: validate structure
 };

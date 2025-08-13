@@ -35,8 +35,11 @@ module.exports = {
   },
 
   async fn(inputs) {
+    const webhooks = await Webhook.qm.getAll();
+
     if (inputs.record.id === inputs.card.coverAttachmentId) {
       await sails.helpers.cards.updateOne.with({
+        webhooks,
         record: inputs.card,
         values: {
           coverAttachmentId: null,
@@ -67,7 +70,8 @@ module.exports = {
       );
 
       sails.helpers.utils.sendWebhooks.with({
-        event: 'attachmentDelete',
+        webhooks,
+        event: Webhook.Events.ATTACHMENT_DELETE,
         buildData: () => ({
           item: sails.helpers.attachments.presentOne(attachment),
           included: {

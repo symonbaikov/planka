@@ -1,9 +1,12 @@
 import dateFns from 'date-fns/locale/sr';
 import timeAgo from 'javascript-time-ago/locale/sr';
 
+import markdownEditor from './markdown-editor.json';
+
 export default {
   dateFns,
   timeAgo,
+  markdownEditor,
 
   format: {
     date: 'd.M.yyyy.',
@@ -198,7 +201,6 @@ export default {
       deleteTask: 'Обриши задатак',
       deleteTask_title: 'Обриши задатак',
       deleteUser: 'Обриши корисника',
-      duplicate: 'Клонирај',
       duplicateCard_title: 'Клонирај картицу',
       edit: 'Измени',
       editDescription_title: 'Измени опис',
